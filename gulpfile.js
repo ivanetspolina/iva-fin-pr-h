@@ -9,6 +9,7 @@ const sourceMaps = require('gulp-sourcemaps');
 // const groupMedia = require('gulp-group-css-media-queries');
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
+const imagemin = require('gulp-imagemin')
 
 
 gulp.task('clean', function(done){
@@ -51,8 +52,10 @@ gulp.task('sass',function(){
     
 });
 
-gulp.task('images', function(){
-    return gulp.src('./src/img/**/*').pipe(gulp.dest('./dist/img/'))
+gulp.task('images', function() {
+    return gulp.src('./src/img/**/*')
+    .pipe(imagemin({verbose: true}))
+    .pipe(gulp.dest('./dist/img/'))
 });
 
 gulp.task('fonts', function(){
