@@ -8,8 +8,8 @@
     "gulp-plumber": "^1.2.1",
     "gulp-sass": "^5.1.0",
     "gulp-sass-glob": "^1.1.0",
-    "gulp-server-livereload": "^1.9.2",
-    "gulp-sourcemaps": "^3.0.0",
+    "gulp-server-livereload": "^1.0.1",
+    "gulp-sourcemaps": "^2.6.5",
     "sass": "^1.79.4"
   }
 }

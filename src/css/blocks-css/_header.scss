@@ -1,6 +1,84 @@
-.header{
-    background-color: gray;
-    color: $color-accent;
-    margin-bottom: 20px;
-    height: 200px;
+// .header{
+//     background-color: gray;
+//     color: $color-accent;
+//     margin-bottom: 20px;
+//     height: 200px;
+// }
+
+$primary-color: #e31e5f;
+$secondary-color: #1d1e40;
+$text-color: #fff;
+$link-color: #00a7ff;
+
+@mixin header-style($bg-color, $text-color, $link-active-color) {
+  background-color: $bg-color;
+  color: $text-color;
+
+  .nav-link {
+    color: $text-color;
+    &:hover, &.active {
+      color: $link-active-color;
+    }
+  }
+
+  .contact-info {
+    color: $text-color;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+
+    span {
+      color: $primary-color;
+    }
+  }
+
+  .nav {
+    display: flex;
+    gap: 15px;
+
+    .nav-link {
+      text-transform: uppercase;
+      font-weight: bold;
+      text-decoration: none;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.3s ease, border-bottom 0.3s ease;
+
+      &:hover {
+        border-bottom-color: $primary-color;
+      }
+
+      &.active {
+        color: $primary-color;
+        border-bottom-color: $primary-color;
+      }
+    }
+  }
+
+  .contact-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .phone-number {
+      font-weight: bold;
+    }
+  }
+
+  &.light {
+    @include header-style(#fff, #333, $primary-color);
+  }
+
+  &.dark {
+    @include header-style($secondary-color, $text-color, $primary-color);
+  }
 }
